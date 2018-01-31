@@ -1,0 +1,39 @@
+{#{% extends "base.html" %}#}
+{#{% block content %}#}
+{#    <h1>Image Upload</h1>#}
+{#     <form action="/user/FileUpload"  enctype="multipart/form-data" method="post">#}
+{#       User ID <input type="text" name="userID"><br />#}
+{#       Password<input type="text" name="password"><br />#}
+{##}
+{#   	What is the image files to upload? <input type="file" name="uploadedfile"><br />#}
+{##}
+{#   	<input type="submit" value="Send">#}
+{#	<input type="reset">#}
+{#    </form>#}
+{#{% endblock %}#}
+
+{% extends "base.html" %}
+{% block content %}
+    <form action="/FileUpload" enctype="multipart/form-data" method="post">
+        <div class="form-group">
+            <label>User ID</label>
+            <input type="text" class="form-control" placeholder="Enter username" name="userID">
+            <small id="usernameHelp" class="form-text text-muted">We'll never share your information with anyone else.
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                   name="password">
+        </div>
+
+        <div class='form-group'>
+            <label class="custom-file" >
+                <input type="file" id="file" name="uploadedfile">
+                <span class="custom-file-control"></span>
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" value="Send">Submit</button>
+    </form>
+{% endblock %}

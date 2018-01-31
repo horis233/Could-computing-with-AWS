@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+
+    <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/my-custom.css')}}" rel="stylesheet">
+    <link href="data:image/x-icon;," rel="shortcut icon" type="image/x-icon">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css">
+    <![endif]-->
+</head>
+<body background='{{ background }}'>
+<h1>{{title}}</h1>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#"> ECE1779_A3</a>
+    </div>
+    <div class="navbar-form navbar-right">
+        <a class="btn btn-success" href="#" onclick=" href='https://s3.amazonaws.com/a3test2/User.pdf'">About This Work</a>
+    </div>
+</nav>
+    <br>
+    <br>
+
+  <div class="container">
+      <div style="text-align:center">
+          <img src = '{{url}}' width="400" height="400" />
+      </div>
+  </div>
+
+			<br><br>
+    <form action="{{url_for('index',username=username)}}" method="get">
+                <input type="submit" value="BACK TO MY PAGE" class="btn btn-default btn-block btn-primary">
+    </form>
+    <form action="{{url_for('thumb_delete', username=username, i=i)}}" >
+                <input type="submit" value="DELETE" class="btn btn-default btn-block btn-primary">
+    </form>
+    </div>
+    </div>
+    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/jquery-3.2.1.min.js')}}"></script>
+
+</body>
+</html>

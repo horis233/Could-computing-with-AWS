@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+    <form action="/ec2/config" enctype="multipart/form-data" method="post">
+        <div class="form-group">
+            <label>Upper Bound</label>
+            <input type="text" class="form-control" placeholder="Enter value of upper bound" name="upper_bound">
+        </div>
+        <div class="form-group">
+            <label>Lower Bound</label>
+            <input type="text" class="form-control" placeholder="Enter value of lower bound" name="lower_bound">
+        </div>
+        <div class="form-group">
+            <label>Expand Ratio</label>
+            <input type="text" class="form-control" placeholder="Enter value of expand ratio" name="expand_ratio">
+        </div>
+        <div class="form-group">
+            <label>Shrink Ratio</label>
+            <input type="text" class="form-control" placeholder="Enter value of shrink ratio" name="shrink_ratio">
+        </div>
+        <button type="submit" class="btn btn-primary" value="Send">Submit</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,36 @@
+{%extends "base.html"%}
+{%block content%}
+
+<div class="container text-center" >
+
+    <div class="error">{{error_msg if error_msg != None}}</div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center">
+
+            <form action="{{url_for('register')}}" class="form-signin" method="post">
+                <div>
+                    <br>
+                    <br>
+                    <br>
+                    <input type="text" name="username" pattern=".*" placeholder="Username" class="form-control" value="{{username if username !=none}}">
+                </div>
+                <br>
+                <div>
+                    <input type="password" name="password" pattern=".*" placeholder="Password" class="form-control" value="{{password if password !=none}}">
+                </div>
+
+                <br>
+                <br>
+
+                <div><input type="submit" value="SAVE" class="btn btn-default btn-block btn-primary"></div>
+            </form>
+
+            <br>
+
+        <form action="{{url_for('index',username=username)}}" method="get">
+            <input type="submit" value="BACK TO MY PAGE" class="btn btn-default btn-block btn-primary">
+        </form>
+        </div>
+    </div>
+</div>
+{%endblock%}

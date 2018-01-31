@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <table />
+    <thead>
+       <th>Name</th>
+       <th>Creation Time</th>
+    </thead>
+    {% for bucket in buckets %}
+        <tr>
+            <td>{{ bucket.name }}</td>
+            <td>{{ bucket.creation_date }}</td>
+            <td>
+                <form action="{{url_for('s3_view',id=bucket.name)}}" method='get'>
+                    <input type='submit' value='Details' />
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

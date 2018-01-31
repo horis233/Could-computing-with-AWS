@@ -1,0 +1,83 @@
+{%extends "base.html"%}
+{%block content%}
+
+  <body>
+  <br>
+  <br>
+  <script type="text/javascript" language="javascript">
+    function show() {
+    document.getElementById("headimg1").src = document.getElementById("selection1").value;
+    document.getElementById("headimg2").src = document.getElementById("selection2").value;
+    }
+</script>
+    <h1 class="text-center">Swap Celebrity Face</h1>
+    <br>
+    <div align="center">
+        <p class=error>{{error_msg if error_msg!=None}}</p>
+    </div>
+    <br>
+     <form action="{{url_for('image_exchange')}}"  enctype="multipart/form-data" method="post">
+
+         <div class="row clearfix">
+		<div class="col-md-6 column">
+
+         <div align="center">
+             <b>You Should choose a pic</b>
+
+             <select id="selection1" name="image1" onchange="show()">
+                <option value="{{ urls[0] }}">xjp</option>
+                <option value="{{ urls[1] }}">emilia</option>
+                <option value="{{ urls[2] }}">emma</option>
+                 <option value="{{ urls[3] }}">hc</option>
+                 <option value="{{ urls[4] }}">hu</option>
+                 <option value="{{ urls[5] }}">justin</option>
+                 <option value="{{ urls[6] }}">kobe</option>
+                 <option value="{{ urls[7] }}">navas</option>
+                 <option value="{{ urls[8] }}">putin</option>
+                 <option value="{{ urls[9] }}">taylor</option>
+            </select>
+             <br><br>
+                <img id="headimg1" src="{{ urls[0] }}" style="width: 300px; height: 300px;" alt="the pic you choose" />
+
+         </div>
+        </div>
+
+         <div class="col-md-6 column">
+             <div align="center">
+             <b>You Should choose a pic</b>
+
+             <select id="selection2" name="image2" onchange="show()">
+                <option value="{{ urls[0] }}">xjp</option>
+                <option value="{{ urls[1] }}">emilia</option>
+                <option value="{{ urls[2] }}">emma</option>
+                 <option value="{{ urls[3] }}">hc</option>
+                 <option value="{{ urls[4] }}">hu</option>
+                 <option value="{{ urls[5] }}">justin</option>
+                 <option value="{{ urls[6] }}">kobe</option>
+                 <option value="{{ urls[7] }}">navas</option>
+                 <option value="{{ urls[8] }}">putin</option>
+                 <option value="{{ urls[9] }}">taylor</option>
+            </select>
+
+             <br><br>
+                <img id="headimg2" src="{{ urls[0] }}" style="width: 300px; height: 300px;" alt="the pic you choose" />
+
+         </div>
+
+         </div>
+         </div>
+         <br>
+
+        <div class="col-md-6 column text-center">
+            <input type="submit" value="SEND" class="btn btn-default btn-block btn-primary" >
+        </div>
+
+     </form>
+  <div class="col-md-6 column text-center">
+  <a href="{{url_for('index',username= username)}}">
+      <input type="submit" value="BACK TO MY PAGE" class="btn btn-default btn-block btn-primary">
+  </a>
+  </div>
+
+  </body>
+{% endblock%}

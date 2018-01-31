@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    <form action='{{url_for("s3_list")}}' method='get'>
+        <input type='submit' value='Back' />
+    </form>
+
+    <form action='{{url_for("s3_upload",id=id)}}' method='post' enctype='multipart/form-data' onsubmit="return validateForm()">
+        <input type='file' id='new_file' name='new_file' accept='application/pdf'>
+        <input type="submit" value="Upload New File" />
+    </form>
+
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Last Modified</th>
+        </thead>
+        {% for k in keys %}
+        <tr>
+            <td>{{ k.key }}</td>
+            <td>{{ k.size }}</td>
+            <td>{{ k.last_modified }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

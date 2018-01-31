@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <form action="{{url_for('ec2_create')}}" method="post">
+        <input type="submit" value="New">
+    </form>
+
+    <form action="{{url_for('project_terminate')}}" method="post" onsubmit='return confirm("Are you sure?")'>
+        <input type="submit" value="Terminate Project">
+    </form>
+
+    <form action="{{url_for('config_form')}}">
+        <input type="submit" value="Autoscaling Config">
+    </form>
+
+    <table />
+    <thead>
+       <th>ID</th>
+       <th>Type</th>
+       <th>Availability Zone</th>
+       <th>Status</th>
+    </thead> 
+    {% for instance in instances %}
+        <tr>
+            <td>{{ instance.id }}</td>
+            <td>{{ instance.instance_type }}</td>
+            <td>{{ instance.placement['AvailabilityZone']}}</td>
+            <td>{{ instance.state['Name'] }}</td>
+            <td>
+                <form action="{{url_for('ec2_view',id=instance.id)}}" method='get'>
+                    <input type='submit' value='Details' />
+                </form>
+            </td>
+         
+            <td>
+                <form action="{{url_for('ec2_destroy',id=instance.id)}}" method='post' onsubmit='return confirm("Are you sure?")'>
+                    <input type='submit' value='Destroy' />
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

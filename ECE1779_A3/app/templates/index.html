@@ -1,0 +1,119 @@
+
+{%extends "base.html"%}
+{%block content%}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#"> ECE1779_A3</a>
+    </div>
+    <div class="navbar-form navbar-right">
+        <form action="{{url_for('logout')}}" method="get">
+                <input type="submit" value="LOGOUT" class="btn btn-default btn-success">
+        </form>
+    </div>
+    <div class="navbar-form navbar-right">
+        <a class="btn btn-success" href="#" onclick=" href='https://s3.amazonaws.com/a3test2/User.pdf'">About This Work</a>
+    </div>
+</nav>
+
+<br>
+<br>
+    <div class="container"style="margin-top:50px;">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+			<div class="jumbotron text-center" style="background-color:#EACDC8">
+
+                {%if session_username%}
+                <h1> Hello <b>{{session_username}}</b></h1>
+                {%endif%}
+
+				<p>
+				You can choose either function to experience  the fun of swapping faces. The first function 'Swap Celebrity Face' enables you to
+                    process the face within given databases. While the second function 'Reinvent Your Face' needs you to upload your own image.
+
+				</p>
+
+			</div>
+        </div>
+
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-4 column text-center">
+            <h2>
+				Swap Celebrity Face
+			</h2>
+            <img src="static/Gallery/index1.jpg" class="img-thumbnail" width="240" height="180"/>
+			<br><br>
+            <blockquote>
+            <p>
+				You can merge one celebrity's facial features with another celebrity's face. A lot of interesting renderings can be achieved.
+			</p>
+            </blockquote>
+			<p>
+                <form action="{{url_for('exchange_all')}}" method="get">
+
+                <input type="submit" value="Swap Face Now!" class="btn btn-default btn-primary">
+                </form>
+			</p>
+
+
+            <br>
+        </div>
+        <div class="col-md-4 column text-center" style="color:#FAD689">
+            <br><br>
+            <p><big><big><big><big><big><big><big><big>&#128518</big></big></big></big></big></big></big></big></p>
+            <br><br><br>
+            <p><big><big><big><big><big><big><big><big>&#128526</big></big></big></big></big></big></big></big></p>
+            <br><br><br>
+            <p><big><big><big><big><big><big><big><big>&#128561</big></big></big></big></big></big></big></big></p>
+        </div>
+        <div class="col-md-4 column text-center">
+            <h2>
+				Reinvent Your Face
+			</h2>
+            <img src="static/Gallery/index2.jpg" class="img-thumbnail" width="240" height="180"/>
+			<br><br>
+            <blockquote>
+            <p>
+				Upload your own image and change your face features step by step. You can own
+                Hillary's eyes, Putin's nose and Trump's mouth at the same time.
+			</p>
+                </blockquote>
+			<p>
+				<form action="{{url_for('exchange_part')}}" method="get">
+                <input type="submit" value="Reinvent Your Face!" class="btn btn-default btn-primary">
+                </form>
+			</p>
+
+
+            <br>
+        </div>
+
+    </div>
+    <br><br>
+			<div class="row clearfix">
+				<div class="col-md-12 column" style="background-color:#EACDC8">
+					<h3 class="text-center">
+						Gallery
+					</h3>
+				</div>
+			</div>
+			<br>
+
+    <a class="row clearfix text-center">
+    <div align="center">
+        {%if No_picture == False%}
+            {%for url in urls%}
+                <a href="{{url_for('thumb_view', username=session_username, i=loop.index)}}" >
+                    <img src = '{{url}}'  class="img-thumbnail" style="width: 300px; height: 300px;"/>
+                </a>
+            {%endfor%}
+        {%endif%}
+    </div>
+
+    </a>
+    </div>
+    </div>
+
+
+
+{% endblock%}

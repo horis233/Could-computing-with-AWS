@@ -1,0 +1,71 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="jumbotron text-center" style="background-color:#EACDC8">
+				<h1>
+					Reinvent Your Look
+				</h1>
+				<p>
+					In this application you can modify your facial features with celebrities step by step. Some funny images can also be created by changing faces between two notables.
+				</p>
+
+			</div>
+			<br><br>
+			<div class="row clearfix">
+				<div class="col-md-5 column">
+					<form action="{{url_for('login')}}" method="get">
+                       <input type="submit" value="LOGIN" class="btn btn-default btn-block btn-primary">
+                    </form>
+				</div>
+                <div class="col-md-2 column">
+                </div>
+
+				<div class="col-md-5 column">
+					 <form action="{{url_for('register')}}" method="get">
+                       <input type="submit" value="REGISTER" class="btn btn-default btn-block btn-primary">
+                    </form>
+				</div>
+			</div>
+			<br><br>
+			<div class="row clearfix">
+				<div class="col-md-12 column" style="background-color:#EACDC8">
+					<h3 class="text-center">
+						Example
+					</h3>
+				</div>
+			</div>
+			<br>
+
+			<div class="row clearfix">
+				<div class="col-md-3 column text-center">
+                    <br><br>
+					<img src="static/Gallery/na.jpg" class="img-thumbnail" width="210" height="275"/>
+
+				</div>
+				<div class="col-md-1 column text-center">
+                    <br><br><br><br><br><br>
+                    <p class="text-center" style="color: #9B90C2"><big><big><big><big><big><big><big>&#8608</big></big></big></big></big></big></big></p>
+				</div>
+				<div class="col-md-3 column text-center">
+                    <br><br>
+					<img src="static/Gallery/output.jpg"  class="img-thumbnail" width="210" height="275"/>
+
+				</div>
+				<div class="col-md-1 column text-center">
+                    <br><br><br><br><br><br>
+                    <p class="text-center" style="color: #9B90C2"><big><big><big><big><big><big><big>&#8606</big></big></big></big></big></big></big></p>
+				</div>
+                <div class="col-md-4 column text-center">
+                    <br><br>
+					<img src="static/Gallery/pu.jpg" class="img-thumbnail" width="210" height="275"/>
+
+				</div>
+			</div>
+
+</div>
+	</div>
+</div>
+
+{%endblock%}

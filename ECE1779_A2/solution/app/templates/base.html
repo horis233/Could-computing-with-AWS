@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="{{ url_for('static', filename='flot/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='flot/jquery.flot.js') }}"></script>
+        <title>{{title}}</title>
+
+    </head>
+    <body>
+        <h1>{{title}}</h2>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

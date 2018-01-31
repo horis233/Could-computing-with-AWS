@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+
+    <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/my-custom.css')}}" rel="stylesheet">
+    <link href="data:image/x-icon;," rel="shortcut icon" type="image/x-icon">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css">
+    <![endif]-->
+</head>
+<body style="background-image:url(static/background.png)">
+<h1>{{title}}</h1>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#"> ECE1779_A3</a>
+    </div>
+    <div class="navbar-form navbar-right">
+        <a class="btn btn-success" href="#" onclick=" href='https://s3.amazonaws.com/a3test2/User.pdf'">About This Work</a>
+    </div>
+</nav>
+
+    {%block content%}
+    {%endblock%}
+
+    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/jquery-3.2.1.min.js')}}"></script>
+
+</body>
+</html>

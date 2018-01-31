@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    <form action="/imagetransform" enctype="multipart/form-data" method="post">
+        <div class='form-group'>
+            <label class="custom-file" >
+                <input type="file" id="file" name="image_file">
+                <span class="custom-file-control"></span>
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" value="Send">Submit</button>
+        <button type="reset" class="btn btn-default" value="Reset">Reset</button>
+    </form>
+{% endblock %}

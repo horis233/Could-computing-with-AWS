@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for url in urls %}
+        <div class="col-md-3">
+             <a href="{{ url_for('thumb_view', username=username, i = loop.index) }}">
+             <img src="{{ url }}" class="img-thumbnail">
+             </a>
+        </div>
+    {% endfor %}
+{% endblock %}

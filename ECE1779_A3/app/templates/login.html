@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+
+    <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/my-custom.css')}}" rel="stylesheet">
+    <link href="data:image/x-icon;," rel="shortcut icon" type="image/x-icon">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css">
+    <![endif]-->
+</head>
+<body style="background-image:url(static/background.png)">
+<h1>{{title}}</h1>
+  <div id="info">
+  Login
+  </div>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#"> ECE1779_A3</a>
+    </div>
+    <div class="navbar-form navbar-right">
+        <a class="btn btn-success" href="#" onclick=" href='https://s3.amazonaws.com/a3test2/User.pdf'">About This Work</a>
+    </div>
+</nav>
+
+<div class="container text-center" >
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center">
+
+
+                <form action=""  enctype="multipart/form-data" class="form-signin" method="post">
+
+                    <br>
+                    <br>
+                    <p class=error>{{error_msg if error_msg!=None}}</p>
+                    <br>
+                    <input type="text" name="userID" id="userID" placeholder="Username" pattern=".*" class="form-control" value="{{userID if userID !=none}}">
+                    <br>
+                    <input type="password" name="password" id="password" pattern=".*" placeholder="Password" class="form-control">
+                    <br>
+                    <br>
+
+
+                <input type="submit" value="LOGIN IN" id="login-button" class="btn btn-default btn-block btn-primary">
+            </form>
+
+            <br>
+
+              <form action="{{url_for('index',username=username)}}" method="get">
+                <input type="submit" value="BACK TO MY PAGE" class="btn btn-default btn-block btn-primary">
+              </form>
+
+
+        </div>
+    </div>
+</div>
+
+    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/jquery-3.2.1.min.js')}}"></script>
+
+</body>
+</html>
